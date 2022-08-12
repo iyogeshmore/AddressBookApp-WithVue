@@ -1,15 +1,14 @@
 <template>
-<Comment/>
+<AddressBook/>
 </template>
 
 <script>
-import Comment from './components/AddressBook.vue'; 
+import AddressBook from './components/AddressBook.vue'; 
 
 export default {
   name: 'App',
   components: {
-    Comment,
-    
+    AddressBook,
   }
 }
 </script>

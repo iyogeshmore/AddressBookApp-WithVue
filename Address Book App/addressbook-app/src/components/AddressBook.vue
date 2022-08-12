@@ -1,24 +1,19 @@
 <template>
     <div>
-
         <header class="header-content header">
             <div class="logo-content">
                 <router-link to="/">
                     <img src="../assets/logo.jpeg" alt="logo" />
                 </router-link>
-
                 <div>
                     <router-link to="/">
                         <span class="addressBook-text">Address</span> <br>
                         <span class="addressBook-text addressBook-book">Book</span>
                     </router-link>
-
                 </div>
             </div>
         </header>
-
-        <!-- UC-2 - Ability to add Form Header -->
-
+   
         <div class="form-content">
             <form class="form" action="#" @submit.prevent="addAddressBook">
                 <div class="form-head">
@@ -26,7 +21,7 @@
                     <img class="form-head-image" src="../assets/cancelButton.png" alt="logo">
                 </div>
 
-                <!-- UC-3 - Add Form Input Fields to the Address Book Form UI  -->
+                <!-- Add Form Input Fields to the Address Book Form UI  -->
 
                 <div class="form-data">
                     <div class="row-content">
@@ -127,13 +122,10 @@
                     </div>
                 </div>
 
-                <!-- UC-5 - Add Submit and Reset Button at the Bottom of the Form -->
+                <!-- Add Submit and Reset Button at the Bottom of the Form -->
 
                 <div class="buttons-contact">
                     <button type="submit" class="button button-submit" id="submitButton">Add</button>
-
-                    <!--UC-9 - Handle Cancel and Reset Event -->
-
                     <button type="reset" class="button button-reset" id="resetButton">Reset</button>
                 </div>
             </form>
@@ -179,7 +171,7 @@ const data = this.formData;
 </script>
 
 <style>
-/* <!-- UC-1 - Begin with creating an Address Book Form UI  --> */
+/* <!-- Begin with creating an Address Book Form UI  --> */
 
 * {
     box-sizing: border-box;
@@ -229,7 +221,7 @@ body {
     text-align: left;
 }
 
-/* <!-- UC-2 - Ability to add Form Header --> */
+/* <!-- Ability to add Form Header --> */
 
 .form-content {
     min-height: calc(100% - 80px);
@@ -270,7 +262,7 @@ body {
     opacity: 1;
 }
 
-/* <!-- UC-3 - Add Form Input Fields to the Address Book Form UI  --> */
+/* <!-- Add Form Input Fields to the Address Book Form UI  --> */
 
 .row-content {
     margin-left: 30px;
@@ -350,7 +342,7 @@ select {
     padding: 16px 10px;
 }
 
-/* <!-- UC-4 - Add Form Validations --> */
+/* <!--  Add Form Validations --> */
 
 error-output {
     margin-left: px;
@@ -359,7 +351,7 @@ error-output {
     color: red;
 }
 
-/* <!-- UC-5 - Add Submit and Reset Button at the Bottom of the Form --> */
+/* <!-- Add Submit and Reset Button at the Bottom of the Form --> */
 
 .buttons-contact {
     margin-top: 30px;
