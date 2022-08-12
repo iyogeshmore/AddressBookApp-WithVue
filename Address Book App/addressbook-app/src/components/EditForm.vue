@@ -18,9 +18,7 @@
             <form class="form" action="#" @submit.prevent="addAddressBook">
                 <div class="form-head">
                     <div class="form-head-text">Person Address Form</div>
-                    <router-link to="/">
-                        <img class="form-head-image" src="../assets/cancelButton.png" alt="logo"/>
-                    </router-link>
+                    <img class="form-head-image" src="../assets/cancelButton.png" alt="logo">
                 </div>
 
                 <!-- Add Form Input Fields to the Address Book Form UI  -->
@@ -127,7 +125,7 @@
                 <!-- Add Submit and Reset Button at the Bottom of the Form -->
 
                 <div class="buttons-contact">
-                    <button type="submit" class="button button-submit" id="submitButton">Add</button>
+                    <button type="submit" class="button button-submit" id="submitButton">Update</button>
                     <button type="reset" class="button button-reset" id="resetButton">Reset</button>
                 </div>
             </form>
@@ -139,7 +137,7 @@
 import AddressBookService from "../Service/AddressBookService"
 
 export default {
-    name: 'AddAddressBook',
+    name: 'EditForm',
     data() {
         return {
             formData: {
@@ -156,18 +154,42 @@ export default {
         addAddressBook(event) {
             event.preventDefault();
             const data = this.formData;
-            AddressBookService.addAddressBook(data)
+            AddressBookService.updateAddressBook(this.formData.id, this.formData)
                 .then((response) => {
-                    console.log(response);
                     console.log(response.data.data);
                     this.employees = response.data.data;
-                    alert("Data Added Successfully!!", response);
+                    alert("Employee Update Successfully!!", response);
+                    this.$router.push({ name: "Home" });
                 })
                 .catch((error) => {
                     console.log(error);
-                    alert("WARNING!! Error while adding the Data!");
+                    alert("WARNING!! Error while edting the data!");
                 });
         },
+        getAddressBookById(id) {
+            AddressBookService.getAddressBookById(id)
+                .then((response) => {
+                    let object = response.data.data;
+                    this.setData(object);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
+        setData(obj) {
+            console.log(obj);
+            this.formData.id = obj.id;
+            this.formData.fullName = obj.fullName;
+            this.formData.address = obj.address;
+            this.formData.city = obj.city;
+            this.formData.state = obj.state;
+            this.formData.zipCode = obj.zipCode;
+            this.formData.phoneNo = obj.phoneNo;
+            console.log(this.formData);
+        },
+    },
+    created() {
+        this.getAddressBookById(this.$route.params.id);
     },
 };
 </script>

@@ -23,11 +23,11 @@ class AddressBookService {
     return axios.get(`${EMPLOYEE_API_BASE_URL}/getById/${id}`);
   }
 
-  getAddressBookById(city) {
+  getAddressBookByCity(city) {
     return axios.get(`${EMPLOYEE_API_BASE_URL}/getByCity/${city}`);
   }
 
-  getAddressBookById(state) {
+  getAddressBookByState(state) {
     return axios.get(`${EMPLOYEE_API_BASE_URL}/getByState/${state}`);
   }
 

@@ -1,14 +1,9 @@
 <template>
-<AddressBook/>
+<router-view/>
 </template>
 
 <script>
-import AddressBook from './components/AddressBook.vue'; 
-
 export default {
   name: 'App',
-  components: {
-    AddressBook,
-  }
 }
 </script>
